@@ -1,13 +1,14 @@
 import "./wordList.css";
 
-function WordList() {
+function WordList({ words }) {
   return (
     <div>
       <h2>Palabras</h2>
 
       <ul>
-        <li>casa</li>
-        <li>árbol</li>
+        {words.map((word) => (
+          <li key={word}>{word}</li>
+        ))}
       </ul>
     </div>
   );

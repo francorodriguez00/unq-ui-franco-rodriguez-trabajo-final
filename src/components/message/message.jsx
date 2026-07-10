@@ -1,7 +1,7 @@
 import "./message.css";
 
-function Message() {
-  return <p>Acá aparecerán los mensajes.</p>;
+function Message({ message }) {
+  return <p>{message}</p>;
 }
 
 export default Message;

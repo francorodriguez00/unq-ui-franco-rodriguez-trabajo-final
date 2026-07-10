@@ -1,10 +1,23 @@
 import "./wordInput.css";
+import { useState } from "react";
 
-function WordInput() {
+function WordInput({ onSubmit }) {
+  const [word, setWord] = useState("");
+  const handleSubmit = () => {
+    onSubmit(word);
+    setWord("");
+  };
   return (
     <div>
-      <input type="text" placeholder="Ingresá una palabra" />
-      <button>Enviar</button>
+      <input
+        type="text"
+        placeholder="Ingresá una palabra"
+        value={word}
+        onChange={(e) => setWord(e.target.value)}
+      />
+      <button onClick={handleSubmit}>
+        Enviar
+      </button>
     </div>
   );
 }

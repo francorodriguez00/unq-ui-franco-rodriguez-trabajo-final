@@ -1,7 +1,7 @@
 import "./timer.css";
 
-function Timer() {
-  return <p>Tiempo: 15</p>;
+function Timer({ time }) {
+  return <p>Tiempo: {time}</p>;
 }
 
 export default Timer;
