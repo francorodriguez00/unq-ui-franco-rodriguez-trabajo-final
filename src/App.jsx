@@ -1,5 +1,7 @@
+import Game from "./views/Game";
+
 function App() {
-  return <h1>Palabras Encadenadas</h1>;
+  return <Game />;
 }
 
 export default App;
