@@ -7,21 +7,17 @@ import WordList from "../components/wordList/wordList";
 import { useGame } from "../hooks/useGame";
 
 function Game() {
-    const { words, score, time, message, gameOver } = useGame();
+    const { words, score, time, message, gameOver, addWord } = useGame();
     return (
         <main>
             <Header />
             <Timer time={time} />
             <Score score={score} />
-            <WordInput onSubmit={handleWordSubmit} />
+            <WordInput onSubmit={addWord} />
             <Message message={message} />
             <WordList words={words} />
         </main>
     );
-}
-
-function handleWordSubmit(word) {
-    console.log(word);
 }
 
 export default Game;
