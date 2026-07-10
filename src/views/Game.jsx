@@ -5,23 +5,31 @@ import WordInput from "../components/wordInput/wordInput";
 import Message from "../components/message/message";
 import WordList from "../components/wordList/wordList";
 import GameOver from "../components/gameOver/gameOver";
+import Leaderboard from "../components/leaderboard/leaderboard";
+import { getLeaderboard } from "../services/leaderboardService";
 import { useGame } from "../hooks/useGame";
 
 function Game() {
-    const { words, score, time, message, gameOver, addWord, restartGame } = useGame();
+    const { words, score, time, message, gameOver, leaderboard, addWord, restartGame } = useGame();
     return (
         <main>
             <Header />
             <Timer time={time} />
             <Score score={score} />
             {
-                !gameOver
-                ? <WordInput onSubmit={addWord}/>
-                : <GameOver
-                    score={score}
-                    wordCount={words.length}
-                    onRestart={restartGame}
-                />
+                !gameOver ? (
+                    <WordInput onSubmit={addWord} />
+                ) : (
+                    <>
+                        <GameOver
+                            score={score}
+                            wordCount={words.length}
+                            onRestart={restartGame}
+                        />
+
+                        <Leaderboard scores={leaderboard} />
+                    </>
+                )
             }
             <Message message={message} />
             <WordList words={words} />        

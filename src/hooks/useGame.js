@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { validateWord } from "../services/wordService";
+import { getLeaderboard, saveScore } from "../services/leaderboardService";
 
 export function useGame() {
     const [words, setWords] = useState([]);
@@ -8,6 +9,7 @@ export function useGame() {
     const [message, setMessage] = useState({text: "", type: ""});
     const [gameOver, setGameOver] = useState(false);
     const [gameStarted, setGameStarted] = useState(false);
+    const [leaderboard, setLeaderboard] = useState(getLeaderboard());
 
     async function addWord(word) {
         word = word.trim().toLowerCase();
@@ -53,6 +55,13 @@ export function useGame() {
         return () => clearInterval(interval);
     }, [gameStarted, gameOver]);
 
+    useEffect(() => {
+        if (gameOver) {
+            saveScore(score);
+            setLeaderboard(getLeaderboard());
+        }
+    }, [gameOver]);
+
     function restartGame() {
         setWords([]);
         setScore(0);
@@ -68,6 +77,7 @@ export function useGame() {
       time,
       message,
       gameOver,
+      leaderboard,
       addWord, 
       restartGame
     };
