@@ -10,6 +10,8 @@ function GameOver({ score, wordCount, leaderboard, onRestart }) {
 
        <p>Palabras válidas: <strong>{wordCount}</strong></p>
 
+       <Leaderboard scores={leaderboard} />
+
       <button onClick={onRestart}>Jugar de nuevo</button>
     </div>
   );

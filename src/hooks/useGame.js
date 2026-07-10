@@ -34,8 +34,8 @@ export function useGame() {
         if (!gameStarted) {
             setGameStarted(true);
         }
-        setWords([...words, word]);
-        setScore(score + word.length);
+        setWords(previousWords => [...previousWords, word]);
+        setScore(previousScore => previousScore + word.length);
         setTime(15);
         setMessage({text: "Palabra válida.", type: "success"});
     }
@@ -60,13 +60,13 @@ export function useGame() {
             saveScore(score);
             setLeaderboard(getLeaderboard());
         }
-    }, [gameOver]);
+    }, [gameOver, score]);
 
     function restartGame() {
         setWords([]);
         setScore(0);
         setTime(15);
-        setMessage("");
+        setMessage({text: "", type: ""});
         setGameOver(false);
         setGameStarted(false);
     }

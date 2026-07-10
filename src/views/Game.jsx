@@ -5,8 +5,6 @@ import WordInput from "../components/wordInput/wordInput";
 import Message from "../components/message/message";
 import WordList from "../components/wordList/wordList";
 import GameOver from "../components/gameOver/gameOver";
-import Leaderboard from "../components/leaderboard/leaderboard";
-import { getLeaderboard } from "../services/leaderboardService";
 import { useGame } from "../hooks/useGame";
 
 function Game() {
@@ -28,6 +26,7 @@ function Game() {
                         <GameOver
                             score={score}
                             wordCount={words.length}
+                            leaderboard={leaderboard}
                             onRestart={restartGame}
                         />
                     </>
