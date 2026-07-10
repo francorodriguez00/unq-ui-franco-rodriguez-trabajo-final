@@ -14,11 +14,15 @@ function Game() {
     return (
         <main>
             <Header />
-            <Timer time={time} />
-            <Score score={score} />
+            {!gameOver && <Timer time={time} />}
+            {!gameOver && <Score score={score} />}
             {
                 !gameOver ? (
-                    <WordInput onSubmit={addWord} />
+                    <>
+                        <WordInput onSubmit={addWord} />
+                        <Message message={message} />
+                        <WordList words={words} />
+                    </>
                 ) : (
                     <>
                         <GameOver
@@ -26,13 +30,9 @@ function Game() {
                             wordCount={words.length}
                             onRestart={restartGame}
                         />
-
-                        <Leaderboard scores={leaderboard} />
                     </>
                 )
             }
-            <Message message={message} />
-            <WordList words={words} />        
         </main>
     );
 }

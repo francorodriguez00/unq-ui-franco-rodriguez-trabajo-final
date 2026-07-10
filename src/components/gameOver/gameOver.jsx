@@ -1,15 +1,16 @@
+import Leaderboard from "../leaderboard/leaderboard";
 import "./gameOver.css";
 
-function GameOver({ score, wordCount, onRestart }) {
+function GameOver({ score, wordCount, leaderboard, onRestart }) {
   return (
-    <div>
+    <div className="game-over">
       <h2>Juego terminado</h2>
 
-      <p>Puntaje final: {score}</p>
+      <p>Puntaje final: <strong>{score}</strong></p>
 
-      <p>Palabras válidas: {wordCount}</p>
+       <p>Palabras válidas: <strong>{wordCount}</strong></p>
 
-      <button onClick={onRestart}>Jugar nuevamente</button>
+      <button onClick={onRestart}>Jugar de nuevo</button>
     </div>
   );
 }
