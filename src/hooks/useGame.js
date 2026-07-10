@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { validateWord } from "../services/wordService";
 
 export function useGame() {
@@ -7,6 +7,7 @@ export function useGame() {
     const [time, setTime] = useState(15);
     const [message, setMessage] = useState("");
     const [gameOver, setGameOver] = useState(false);
+    const [gameStarted, setGameStarted] = useState(false);
 
     async function addWord(word) {
         word = word.trim().toLowerCase();
@@ -28,10 +29,29 @@ export function useGame() {
                 return;
             }
         }
+        if (!gameStarted) {
+            setGameStarted(true);
+        }
         setWords([...words, word]);
         setScore(score + word.length);
+        setTime(15);
         setMessage("Palabra válida.");
     }
+
+    useEffect(() => {
+        if (!gameStarted || gameOver) return;
+        const interval = setInterval(() => {
+            setTime(previousTime => {
+                if (previousTime <= 1) {
+                    clearInterval(interval);
+                    setGameOver(true);
+                    return 0;
+                }
+                return previousTime - 1;
+            });
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [gameStarted, gameOver]);
 
     return {
       words,

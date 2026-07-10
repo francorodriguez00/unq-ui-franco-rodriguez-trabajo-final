@@ -4,6 +4,7 @@ import Score from "../components/scoreDisplay/scoreDisplay";
 import WordInput from "../components/wordInput/wordInput";
 import Message from "../components/message/message";
 import WordList from "../components/wordList/wordList";
+import GameOver from "../components/gameOver/gameOver";
 import { useGame } from "../hooks/useGame";
 
 function Game() {
@@ -13,7 +14,14 @@ function Game() {
             <Header />
             <Timer time={time} />
             <Score score={score} />
-            <WordInput onSubmit={addWord} />
+            {
+                !gameOver
+                ? <WordInput onSubmit={addWord}/>
+                : <GameOver
+                    score={score}
+                    wordCount={words.length}
+                />
+            }
             <Message message={message} />
             <WordList words={words} />
         </main>
