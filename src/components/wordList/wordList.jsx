@@ -6,8 +6,8 @@ function WordList({ words }) {
       <h2>Palabras</h2>
 
       <ul>
-        {words.map((word) => (
-          <li key={word}>{word}</li>
+        {words.map((word, index) => (
+            <li key={index}>{word}</li>
         ))}
       </ul>
     </div>

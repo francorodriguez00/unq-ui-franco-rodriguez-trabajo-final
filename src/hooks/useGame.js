@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { validateWord } from "../services/wordService";
 
 export function useGame() {
     const [words, setWords] = useState([]);
@@ -7,9 +8,15 @@ export function useGame() {
     const [message, setMessage] = useState("");
     const [gameOver, setGameOver] = useState(false);
 
-    function addWord(word) {
+    async function addWord(word) {
+        const exists = await validateWord(word);
+        if (!exists) {
+            setMessage("La palabra no existe.");
+            return;
+        }
         setWords([...words, word]);
         setScore(score + word.length);
+        setMessage("Palabra válida.");
     }
 
     return {
