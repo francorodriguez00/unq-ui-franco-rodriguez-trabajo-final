@@ -5,7 +5,7 @@ export function useGame() {
     const [words, setWords] = useState([]);
     const [score, setScore] = useState(0);
     const [time, setTime] = useState(15);
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState({text: "", type: ""});
     const [gameOver, setGameOver] = useState(false);
     const [gameStarted, setGameStarted] = useState(false);
 
@@ -14,18 +14,18 @@ export function useGame() {
         if (!word) return;
         const exists = await validateWord(word);
         if (!exists) {
-            setMessage("La palabra no existe.");
+            setMessage({text: "La palabra no existe.", type: "error"});            
             return;
         }
         if (words.includes(word)) {
-        setMessage("La palabra ya fue utilizada.");
+        setMessage({text: "La palabra ya fue utilizada.", type: "error"});
         return;
         }
         if (words.length > 0) {
         const lastWord = words[words.length - 1];
         const lastLetter = lastWord[lastWord.length - 1];
             if (word[0] !== lastLetter) {
-                setMessage("La palabra no respeta la cadena.");
+                setMessage({text: "La palabra no respeta la cadena.", type: "error"});
                 return;
             }
         }
@@ -35,7 +35,7 @@ export function useGame() {
         setWords([...words, word]);
         setScore(score + word.length);
         setTime(15);
-        setMessage("Palabra válida.");
+        setMessage({text: "Palabra válida.", type: "success"});
     }
 
     useEffect(() => {
