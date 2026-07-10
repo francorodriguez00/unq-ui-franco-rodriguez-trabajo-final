@@ -8,7 +8,7 @@ import GameOver from "../components/gameOver/gameOver";
 import { useGame } from "../hooks/useGame";
 
 function Game() {
-    const { words, score, time, message, gameOver, addWord } = useGame();
+    const { words, score, time, message, gameOver, addWord, restartGame } = useGame();
     return (
         <main>
             <Header />
@@ -20,10 +20,11 @@ function Game() {
                 : <GameOver
                     score={score}
                     wordCount={words.length}
+                    onRestart={restartGame}
                 />
             }
             <Message message={message} />
-            <WordList words={words} />
+            <WordList words={words} />        
         </main>
     );
 }

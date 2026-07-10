@@ -53,12 +53,22 @@ export function useGame() {
         return () => clearInterval(interval);
     }, [gameStarted, gameOver]);
 
+    function restartGame() {
+        setWords([]);
+        setScore(0);
+        setTime(15);
+        setMessage("");
+        setGameOver(false);
+        setGameStarted(false);
+    }
+
     return {
       words,
       score,
       time,
       message,
       gameOver,
-      addWord
+      addWord, 
+      restartGame
     };
 }
