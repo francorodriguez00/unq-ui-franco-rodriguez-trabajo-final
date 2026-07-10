@@ -8,7 +8,7 @@ function WordInput({ onSubmit }) {
     setWord("");
   };
   return (
-    <div>
+    <div className="word-input">
       <input
         type="text"
         placeholder="Ingresá una palabra"

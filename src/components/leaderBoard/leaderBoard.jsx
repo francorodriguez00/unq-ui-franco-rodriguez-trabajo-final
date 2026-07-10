@@ -2,7 +2,7 @@ import "./leaderBoard.css";
 
 function Leaderboard({ scores }) {
   return (
-    <div>
+    <div className="leaderboard">
       <h2>🏆 Mejores Puntajes</h2>
 
       <ol>

@@ -2,7 +2,7 @@ import "./wordList.css";
 
 function WordList({ words }) {
   return (
-    <div>
+    <div className="word-list">
       <h2>Palabras</h2>
 
       <ul>

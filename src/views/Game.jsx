@@ -12,8 +12,10 @@ function Game() {
     return (
         <main>
             <Header />
-            {!gameOver && <Timer time={time} />}
-            {!gameOver && <Score score={score} />}
+                <div className="game-info">
+                    {!gameOver && <Timer time={time} />}
+                    {!gameOver && <Score score={score} />}
+                </div>
             {
                 !gameOver ? (
                     <>
