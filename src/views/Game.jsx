@@ -6,6 +6,7 @@ import Message from "../components/message/message";
 import WordList from "../components/wordList/wordList";
 import GameOver from "../components/gameOver/gameOver";
 import { useGame } from "../hooks/useGame";
+import "./Game.css";
 
 function Game() {
     const { words, score, time, message, gameOver, leaderboard, addWord, restartGame } = useGame();
