@@ -22,17 +22,15 @@ function Game() {
                     <>
                         <WordInput onSubmit={addWord} />
                         <Message message={message} />
-                        <WordList words={words} />
+                        {words.length > 0 && (<WordList words={words} />)}
                     </>
                 ) : (
-                    <>
-                        <GameOver
-                            score={score}
-                            wordCount={words.length}
-                            leaderboard={leaderboard}
-                            onRestart={restartGame}
-                        />
-                    </>
+                    <GameOver
+                        score={score}
+                        wordCount={words.length}
+                        leaderboard={leaderboard}
+                        onRestart={restartGame}
+                    />
                 )
             }
         </main>

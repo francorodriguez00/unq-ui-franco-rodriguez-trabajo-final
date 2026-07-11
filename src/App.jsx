@@ -1,7 +1,7 @@
 import Game from "./views/Game";
 
 function App() {
-  return <Game />;
+    return <Game />;
 }
 
 export default App;

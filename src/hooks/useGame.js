@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { validateWord } from "../services/wordService";
 import { getLeaderboard, saveScore } from "../services/leaderboardService";
 
+const TURN_TIME = 15;
+
 export function useGame() {
     const [words, setWords] = useState([]);
     const [score, setScore] = useState(0);
-    const [time, setTime] = useState(15);
+    const [time, setTime] = useState(TURN_TIME);
     const [message, setMessage] = useState({text: "", type: ""});
     const [gameOver, setGameOver] = useState(false);
     const [gameStarted, setGameStarted] = useState(false);
@@ -36,7 +38,7 @@ export function useGame() {
         }
         setWords(previousWords => [...previousWords, word]);
         setScore(previousScore => previousScore + word.length);
-        setTime(15);
+        setTime(TURN_TIME);
         setMessage({text: "Palabra válida.", type: "success"});
     }
 
@@ -65,7 +67,7 @@ export function useGame() {
     function restartGame() {
         setWords([]);
         setScore(0);
-        setTime(15);
+        setTime(TURN_TIME);
         setMessage({text: "", type: ""});
         setGameOver(false);
         setGameStarted(false);
