@@ -3,7 +3,7 @@
 }
 
 .game-over h2 {
-    color: #d4a017;
+    color: #d32f2f;
     margin-bottom: 20px;
 }
 
@@ -20,9 +20,14 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color .2s;
+    transition: background-color .2s, transform .1s;
 }
 
 .game-over button:hover {
     background-color: #1565c0;
+    transform: translateY(-2px);
+}
+
+.game-over button:active {
+    transform: scale(0.96);
 }

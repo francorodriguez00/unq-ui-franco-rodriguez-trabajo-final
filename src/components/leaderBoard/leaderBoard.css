@@ -2,7 +2,8 @@
     margin: 25px 0;
 }
 
-.leaderboard h2 {
+.game-over .leaderboard h2 {
+    color: #d4a017;
     margin-bottom: 10px;
 }
 

@@ -18,18 +18,18 @@ export function useGame() {
         if (!word) return;
         const exists = await validateWord(word);
         if (!exists) {
-            setMessage({text: "La palabra no existe.", type: "error"});            
+            showMessage("La palabra no existe.", "error");            
             return;
         }
         if (words.includes(word)) {
-        setMessage({text: "La palabra ya fue utilizada.", type: "error"});
+        showMessage("La palabra ya fue utilizada.", "error");
         return;
         }
         if (words.length > 0) {
         const lastWord = words[words.length - 1];
         const lastLetter = lastWord[lastWord.length - 1];
             if (word[0] !== lastLetter) {
-                setMessage({text: "La palabra no respeta la cadena.", type: "error"});
+                showMessage("La palabra no respeta la regla de encadenamiento.", "error");
                 return;
             }
         }
@@ -39,7 +39,7 @@ export function useGame() {
         setWords(previousWords => [...previousWords, word]);
         setScore(previousScore => previousScore + word.length);
         setTime(TURN_TIME);
-        setMessage({text: "Palabra válida.", type: "success"});
+        showMessage("Palabra válida.", "success");
     }
 
     useEffect(() => {
@@ -71,6 +71,10 @@ export function useGame() {
         setMessage({text: "", type: ""});
         setGameOver(false);
         setGameStarted(false);
+    }
+
+    function showMessage(text, type) {
+        setMessage({ text, type });
     }
 
     return {
