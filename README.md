@@ -17,7 +17,7 @@ Aplicación desarrollada en React, con el objetivo es formar la cadena más larg
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/TU-USUARIO/unq-ui-franco-rodriguez-trabajo-final.git
+git clone https://github.com/francorodriguez00/unq-ui-franco-rodriguez-trabajo-final.git
 ```
 
 2. Acceder a la carpeta del proyecto:
