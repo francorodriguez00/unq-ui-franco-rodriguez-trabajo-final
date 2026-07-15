@@ -1,0 +1,17 @@
+.leaderboard {
+    margin: 25px 0;
+}
+
+.game-over .leaderboard h2 {
+    color: #d4a017;
+    margin-bottom: 10px;
+}
+
+.leaderboard ol {
+    padding-left: 20px;
+}
+
+.leaderboard li {
+    margin-bottom: 8px;
+    font-weight: bold;
+}

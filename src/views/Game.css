@@ -1,0 +1,38 @@
+main {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+
+    main {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .word-input {
+        flex-direction: column;
+    }
+
+    .word-input button {
+        width: 100%;
+        padding: 12px;
+    }
+}

@@ -1,0 +1,23 @@
+.word-list {
+    margin-top: 25px;
+}
+
+.word-list h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.word-list ul {
+    list-style: none;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.word-list li {
+    background-color: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #1976d2;
+}
